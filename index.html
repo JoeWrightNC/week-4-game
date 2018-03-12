@@ -26,10 +26,11 @@
   </div>
 </header>
 
-<!--
+
 <div id="selectionPage">
   <div class="row">
     <div class="col-xs-12 col-md-6">
+      <button type="button" class="btn btn-warning" id="startBtn">Start Game</button>
     </div>
     <div class="col-xs-12 col-md-6">
       <div id="selectionContainer">
@@ -41,26 +42,33 @@
         <div class"row">
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="marioImg" src="./assets/images/Mario.png" alt="Mario">
-            <div class="stats">
-              <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
-              <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
-            </div>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="linkImg" src="./assets/images/Link.png" alt="Link">
-            <div class="stats">
-              <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
-              <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
-            </div>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="foxImg" src="./assets/images/Fox.png" alt="Fox">
-            <div class="stats">
-              <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
-              <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+          </div>
+          <div class"row">
+            <div class="col-xs-4">
+              <div class="stats">
+                  <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
+                  <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+                </div>
+              </div>
+            <div class="col-xs-4">
+              <div class="stats">
+                <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
+                <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="stats">
+                <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
+                <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+              </div>
             </div>
           </div>
-        </div>
         <div class="row">
           <div class="col-xs-12">
             <h2>Who Will You Fight First?</h2> 
@@ -69,30 +77,39 @@
         <div class"row">
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="bowserImg" src="./assets/images/Bowser.png" alt="Bowser">
-            <div class="stats">
-              <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
-              <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
-            </div>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="warioImg" src="./assets/images/Wario.png" alt="Wario">
-            <div class="stats">
-              <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
-              <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
-            </div>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="waluigiImg" src="./assets/images/Waluigi.png" alt="Waluigi">
+          </div>
+        </div>
+        <div class"row">
+          <div class="col-xs-4">
             <div class="stats">
-              <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
-              <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+                <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
+                <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="stats">
+                <p> DMG: <span id="DMG1" class="DMG" value="8">8</span> </p>
+                <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="stats">
+                <p> DMG: <span id="DMG1" class="DMG" value="8">18</span> </p>
+                <p> HP: <span id="HP1" class="HP" value="120">120</span> </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>-->
+</div>
 
 <!--<div id=battlePage>
   <div class="row upNextRow" id="upNext">
@@ -112,13 +129,13 @@
       <p>Your HP</p>
       <p id=playerHP>text 1</p>
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1" id="player">
       <img class="battlePageImg" id="playerImg" src="./assets/images/mario.png">
       <button type="button" class="btn btn-danger" id="attackBtn">Attack</button>
     </div>
     <div class="col-xs-2">
     </div>
-    <div class="col-xs-1">
+    <div class="col-xs-1" id="opponent">
       <img class="battlePageImg" id="opponentImg" src="./assets/images/Waluigi.png">
     </div>
     <div class="col-xs-4">
@@ -128,11 +145,12 @@
   </div>
 </div>-->
 
+<!--
 <div id=losePage>
   <div class="jumbotron loseJumbo">
     <h1>You Lose...</h1>
   </div>
-</div>
+</div>-->
 
 <footer class="footer">
     <span>Made by Joe Wright, Available for Hire</span>
