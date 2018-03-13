@@ -44,6 +44,10 @@ h1 {
   height:90%;
 }
 
+.selectionWell {
+  width: 100%;
+}
+
 img.selectionImg:hover {
   background-color:orange;
 }
@@ -54,8 +58,17 @@ img.selectionImg:hover {
   padding-bottom:25%;
 }
 
+.selectionColumn {
+  margin-top:20%;
+}
+
+.firstSelection {
+  background:orange;
+  width:auto;
+  opacity:.8;
+}
+
 #startBtn {
-  margin-top:50%;
   font-size:x-large;
 }
 
