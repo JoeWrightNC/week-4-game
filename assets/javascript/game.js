@@ -9,10 +9,8 @@ $("#winPage").hide();
 //set variables for game
 var playerAP = 0;
 var playerHP = 0;
-var enemyAP = 0;
 var enemyHP = 0;
-var player ;
-var opponent ;
+var enemyAP = 0;
 var playerChoice = false ;
 var enemyChoice = false;
 var resetPlayerAP = 0;
@@ -111,6 +109,7 @@ function battleTime() {
     $("#attackBtn").on("click", function battlin() {
       enemyHP = enemyHP - playerAP;
       $("#opponentHP").text(enemyHP);
+      $("#opponentAP").text(enemyAP);
       console.log(enemyHP);
       playerAP = playerAP + 3;
       $("#playerAP").text(playerAP);
@@ -128,7 +127,6 @@ function battleTime() {
         enemyLeft--
         enemyLeft = enemyLeft
         chooseNext();
-        console.log(enemyLeft)
       }
       else {
         $("#selectionPage").hide();
