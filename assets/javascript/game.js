@@ -108,7 +108,6 @@ function charDefiner() {
 }
 
 function oppoDefiner() {
-  console.log(enemyLeft);
   if (enemyLeft == 3) {
     if ($(".selectionEnemyImg").attr("id") === "bowserImg") {
       enemyAP = bowserChar.aP;
@@ -135,16 +134,14 @@ function oppoDefiner() {
   }
   else if (enemyLeft == 2) {
     $(".upNextImg").on("click", function (){
-    console.log(this)
       if ($(this).attr("id") === "upNextImgOne") {
         $("#opponentHP").text(enemyHP);
         $("#opponentAP").text(enemyAP);
         $("#upNextImgOne").appendTo("#opponent");
         $("#opponentImg").hide();
-        $("#nextText").text("");
+        $("#nextText").empty();
         enemyAP = bowserChar.aP;
         enemyHP = bowserChar.hP;
-        console.log("getting closer")
         battleTime()
       }
       else if ($(this).attr("id") === "upNextImgTwo") {
@@ -152,27 +149,24 @@ function oppoDefiner() {
         $("#opponentAP").text(enemyAP);
         $("#upNextImgTwo").appendTo("#opponent");
         $("#opponentImg").hide();
-        $("#nextText").text("");
+        $("#nextText").empty();
         enemyAP = bowserChar.aP;
         enemyHP = bowserChar.hP;
-        console.log("getting closer")
         battleTime()
       }
     })
   }
   else if (enemyLeft == 1) {
       $(".upNextImg").on("click", function (){
-      console.log("ya made it}")
         if ($(this).attr("id") === "upNextImgOne") {
           $("#opponentHP").text(enemyHP);
           $("#opponentAP").text(enemyAP);
           $("#upNextImgOne").appendTo("#opponent");
           $("#opponentImg").hide();
           $("#upNextImgTwo").hide();
-          $("#nextText").text("");
+          $("#nextText").empty();
           enemyAP = bowserChar.aP;
           enemyHP = bowserChar.hP;
-          console.log("getting closer one")
           battleTime()
         }
         else if ($(this).attr("id") === "upNextImgTwo") {
@@ -181,10 +175,9 @@ function oppoDefiner() {
           $("#upNextImgTwo").appendTo("#opponent");
           $("#opponentImg").hide();
           $("#upNextImgOne").hide();
-          $("#nextText").text("");
+          $("#nextText").empty();
           enemyAP = bowserChar.aP;
           enemyHP = bowserChar.hP;
-          console.log("getting closer one")
           battleTime()
         }
       })
@@ -195,6 +188,9 @@ function oppoDefiner() {
 
 function battleTime() {
   console.log("you made it to battle time")
+  var songTime = document.getElementById("gameMusicSource");
+  songTime.src = "assets/audio/gameSounds.wav";
+  console.log("battle time still but also new music?")
   $("#playerHP").text(playerHP);
   $("#opponentHP").text(enemyHP);
   $("#playerAP").text(playerAP);
@@ -236,7 +232,6 @@ function battleTime() {
 
 function chooseNext() {
   console.log("you made it to choose next");
-  console.log(enemyLeft)
   $("#attackBtn").unbind("click") 
   $("#nextText").text("Choose Next Opponent")
   $("#opponentHP").empty();
