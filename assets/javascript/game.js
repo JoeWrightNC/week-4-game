@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+//start music and set page
+var player = document.getElementById("gameMusicSource");
+player.loop = false;
+player.play();
 $("#selectionPage").show();
 $("#battlePage").hide();
 $("#losePage").hide();
@@ -77,8 +81,9 @@ $("#startBtn").on("click", function(startGame) {
     $("#battlePage").show();
     $("#losePage").hide();
     $("#winPage").hide();
-    var source = $("#gameMusicSource");
-    source.attr("src", "assets/audio/gameSounds.wav");
+    var player = document.getElementById("gameMusicSource2");
+    player.loop = false;
+    player.play();
     charDefiner();
   }
   else {
@@ -113,46 +118,47 @@ function oppoDefiner() {
       enemyAP = bowserChar.aP;
       enemyHP = bowserChar.hP;
       $("#opponentImg").attr("src", bowserChar.source)
+      $("#opponentImg").addClass("bowserChecker")
       $("#upNextImgOne").attr("src", warioChar.source)
+      $("#upNextImgOne").addClass("warioChecker")
       $("#upNextImgTwo").attr("src", waluigiChar.source)
+      $("#upNextImgTwo").addClass("waluigiChecker")
     }
     else if ($(".selectionEnemyImg").attr("id") === "warioImg") {
       enemyAP = warioChar.aP;
       enemyHP = warioChar.hP;
       $("#opponentImg").attr("src", warioChar.source)
+      $("#opponentImg").addClass("warioChecker")
       $("#upNextImgOne").attr("src", bowserChar.source)
+      $("#upNextImgOne").addClass("bowserChecker")
       $("#upNextImgTwo").attr("src", waluigiChar.source)
+      $("#upNextImgTwo").addClass("waluigiChecker")
     }
     else if ($(".selectionEnemyImg").attr("id") === "waluigiImg") {
       enemyAP = waluigiChar.aP;
       enemyHP = waluigiChar.hP;
       $("#opponentImg").attr("src", waluigiChar.source)
+      $("#opponentImg").addClass("waluigiChecker")
       $("#upNextImgOne").attr("src", bowserChar.source)
+      $("#upNextImgOne").addClass("bowserChecker")
       $("#upNextImgTwo").attr("src", warioChar.source)
+      $("#upNextImgTwo").addClass("warioChecker")
     }
   battleTime()
   }
   else if (enemyLeft == 2) {
     $(".upNextImg").on("click", function (){
       if ($(this).attr("id") === "upNextImgOne") {
-        $("#opponentHP").text(enemyHP);
-        $("#opponentAP").text(enemyAP);
         $("#upNextImgOne").appendTo("#opponent");
         $("#opponentImg").hide();
         $("#nextText").empty();
-        enemyAP = bowserChar.aP;
-        enemyHP = bowserChar.hP;
-        battleTime()
+        statMakerOne()
       }
       else if ($(this).attr("id") === "upNextImgTwo") {
-        $("#opponentHP").text(enemyHP);
-        $("#opponentAP").text(enemyAP);
         $("#upNextImgTwo").appendTo("#opponent");
         $("#opponentImg").hide();
         $("#nextText").empty();
-        enemyAP = bowserChar.aP;
-        enemyHP = bowserChar.hP;
-        battleTime()
+        statMakerTwo()
       }
     })
   }
@@ -167,7 +173,8 @@ function oppoDefiner() {
           $("#nextText").empty();
           enemyAP = bowserChar.aP;
           enemyHP = bowserChar.hP;
-          battleTime()
+          var statTown = this
+          statMakerOne()
         }
         else if ($(this).attr("id") === "upNextImgTwo") {
           $("#opponentHP").text(enemyHP);
@@ -178,12 +185,62 @@ function oppoDefiner() {
           $("#nextText").empty();
           enemyAP = bowserChar.aP;
           enemyHP = bowserChar.hP;
-          battleTime()
+          var statTown = this
+          statMakerTwo()
         }
       })
   }
 }
 
+//function for mapping hp and ap throughout gameplay
+
+function statMakerOne(){
+  if ($("#upNextImgOne").attr("class") == "battlePageImg upNextImg bowserChecker") {
+    $("#opponentHP").text(bowserChar.hP);
+    $("#opponentAP").text(bowserChar.aP);
+    enemyAP = bowserChar.aP;
+    enemyHP = bowserChar.hP;
+    battleTime()
+  }
+  else if ($("#upNextImgOne").attr("class") == "battlePageImg upNextImg warioChecker") {
+    $("#opponentHP").text(warioChar.hP);
+    $("#opponentAP").text(warioChar.aP);
+    enemyAP = warioChar.aP;
+    enemyHP = warioChar.hP;
+    battleTime()
+  }
+  else if ($("#upNextImgOne").attr("class") == "battlePageImg upNextImg waluigiChecker") {
+    $("#opponentHP").text(waluigiChar.hP);
+    $("#opponentAP").text(waluigiChar.aP);
+    enemyAP = waluigiChar.aP;
+    enemyHP = waluigiChar.hP;
+    battleTime()
+  }
+}
+
+function statMakerTwo(){
+  if ($("#upNextImgTwo").attr("class") == "battlePageImg upNextImg bowserChecker") {
+    $("#opponentHP").text(bowserChar.hP);
+    $("#opponentAP").text(bowserChar.aP);
+    enemyAP = bowserChar.aP;
+    enemyHP = bowserChar.hP;
+    battleTime()
+  }
+  else if ($("#upNextImgTwo").attr("class") == "battlePageImg upNextImg warioChecker") {
+    $("#opponentHP").text(warioChar.hP);
+    $("#opponentAP").text(warioChar.aP);
+    enemyAP = warioChar.aP;
+    enemyHP = warioChar.hP;
+    battleTime()
+  }
+  else if ($("#upNextImgTwo").attr("class") == "battlePageImg upNextImg waluigiChecker") {
+    $("#opponentHP").text(waluigiChar.hP);
+    $("#opponentAP").text(waluigiChar.aP);
+    enemyAP = waluigiChar.aP;
+    enemyHP = waluigiChar.hP;
+    battleTime()
+  }
+}
 //battle function
 
 function battleTime() {
