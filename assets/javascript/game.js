@@ -48,6 +48,7 @@ $("#startBtn").on("click", function(startGame) {
     $("#battlePage").show();
     $("#losePage").hide();
     $("#winPage").hide();
+    $("#gameMusic").attr("src", "assets/audio/gameMusic.wav")
     if ($(".selectionImg").attr("id") === "marioImg") {
       playerAP = 15;
       playerHP = 280;
