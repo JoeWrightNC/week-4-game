@@ -150,13 +150,13 @@ function oppoDefiner() {
     $(".upNextImg").on("click", function (){
       if ($(this).attr("id") === "upNextImgOne") {
         $("#upNextImgOne").appendTo("#opponent");
-        $("#opponentImg").hide();
+        $("#opponentImg").remove();
         $("#nextText").empty();
         statMakerOne()
       }
       else if ($(this).attr("id") === "upNextImgTwo") {
         $("#upNextImgTwo").appendTo("#opponent");
-        $("#opponentImg").hide();
+        $("#opponentImg").remove();
         $("#nextText").empty();
         statMakerTwo()
       }
@@ -165,27 +165,17 @@ function oppoDefiner() {
   else if (enemyLeft == 1) {
       $(".upNextImg").on("click", function (){
         if ($(this).attr("id") === "upNextImgOne") {
-          $("#opponentHP").text(enemyHP);
-          $("#opponentAP").text(enemyAP);
           $("#upNextImgOne").appendTo("#opponent");
-          $("#opponentImg").hide();
-          $("#upNextImgTwo").hide();
+          $("#opponentImg").remove();
+          $("#upNextImgTwo").remove();
           $("#nextText").empty();
-          enemyAP = bowserChar.aP;
-          enemyHP = bowserChar.hP;
-          var statTown = this
           statMakerOne()
         }
         else if ($(this).attr("id") === "upNextImgTwo") {
-          $("#opponentHP").text(enemyHP);
-          $("#opponentAP").text(enemyAP);
           $("#upNextImgTwo").appendTo("#opponent");
-          $("#opponentImg").hide();
-          $("#upNextImgOne").hide();
+          $("#opponentImg").remove();
+          $("#upNextImgOne").remove();
           $("#nextText").empty();
-          enemyAP = bowserChar.aP;
-          enemyHP = bowserChar.hP;
-          var statTown = this
           statMakerTwo()
         }
       })
@@ -247,39 +237,44 @@ function battleTime() {
   console.log("you made it to battle time")
   var songTime = document.getElementById("gameMusicSource");
   songTime.src = "assets/audio/gameSounds.wav";
-  console.log("battle time still but also new music?")
   $("#playerHP").text(playerHP);
   $("#opponentHP").text(enemyHP);
   $("#playerAP").text(playerAP);
   $("#opponentAP").text(enemyAP);
   if (enemyHP > 0) {
     $("#attackBtn").on("click", function battlin() {
+      $("#player" ).animate({ "left": "+=13%" }, "slow" );
+      $("#player" ).animate({ "left": "-=13%" }, "slow" );
+      $("#opponent" ).animate({ "left": "-=13%" }, "slow" );
+      $("#opponent" ).animate({ "left": "+=13%" }, "slow" );
       enemyHP = enemyHP - playerAP;
       $("#opponentHP").text(enemyHP);
-      $("#opponentAP").text(enemyAP);
+      playerHP = playerHP - enemyAP;
+      $("#playerHP").text(playerHP);
       playerAP = playerAP + 3;
       $("#playerAP").text(playerAP);
-      var checker = playerHP - enemyAP ;
-      if (enemyHP > 0 && playerHP > checker) {
-        playerHP = playerHP - enemyAP;
-        $("#playerHP").text(playerHP);
-      }
-      else if (playerHP <= 0) {
-          $("#selectionPage").hide();
-          $("#battlePage").hide();
-          $("#losePage").show();
-          $("#winPage").hide();
-      }
-      else if (enemyLeft > 1 && enemyHP <= 0) {
+      if (enemyLeft > 1 && enemyHP <= 0) {
         enemyLeft--
         enemyLeft = enemyLeft
+        enemyHP = 1
         chooseNext();
       }
-      else {
+      if (enemyLeft === 1 && enemyHP > 0) {
+        console.log("ya here")
+        console.log(enemyHP)
+      }
+      if (enemyLeft === 1 && enemyHP <= 0) {
+        console.log(enemyHP)
         $("#selectionPage").hide();
         $("#battlePage").hide();
         $("#losePage").hide();
         $("#winPage").show();
+      }
+      if (playerHP <= 0) {
+        $("#selectionPage").hide();
+        $("#battlePage").hide();
+        $("#losePage").show();
+        $("#winPage").hide();
       }
     })
   }
@@ -291,8 +286,8 @@ function chooseNext() {
   console.log("you made it to choose next");
   $("#attackBtn").unbind("click") 
   $("#nextText").text("Choose Next Opponent")
-  $("#opponentHP").empty();
-  $("#opponentAP").empty();
+  $("#opponentAP").text("0");
+  $("#opponentHP").text("0");
   oppoDefiner()
 }
 
