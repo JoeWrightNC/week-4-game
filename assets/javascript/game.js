@@ -144,7 +144,7 @@ function oppoDefiner() {
       $("#upNextImgTwo").attr("src", warioChar.source)
       $("#upNextImgTwo").addClass("warioChecker")
     }
-  battleTime()
+  preBattleTime()
   }
   else if (enemyLeft == 2) {
     $(".upNextImg").on("click", function (){
@@ -166,14 +166,12 @@ function oppoDefiner() {
       $(".upNextImg").on("click", function (){
         if ($(this).attr("id") === "upNextImgOne") {
           $("#upNextImgOne").appendTo("#opponent");
-          $("#opponentImg").remove();
           $("#upNextImgTwo").remove();
           $("#nextText").empty();
           statMakerOne()
         }
         else if ($(this).attr("id") === "upNextImgTwo") {
           $("#upNextImgTwo").appendTo("#opponent");
-          $("#opponentImg").remove();
           $("#upNextImgOne").remove();
           $("#nextText").empty();
           statMakerTwo()
@@ -190,22 +188,20 @@ function statMakerOne(){
     $("#opponentAP").text(bowserChar.aP);
     enemyAP = bowserChar.aP;
     enemyHP = bowserChar.hP;
-    battleTime()
   }
   else if ($("#upNextImgOne").attr("class") == "battlePageImg upNextImg warioChecker") {
     $("#opponentHP").text(warioChar.hP);
     $("#opponentAP").text(warioChar.aP);
     enemyAP = warioChar.aP;
     enemyHP = warioChar.hP;
-    battleTime()
   }
   else if ($("#upNextImgOne").attr("class") == "battlePageImg upNextImg waluigiChecker") {
     $("#opponentHP").text(waluigiChar.hP);
     $("#opponentAP").text(waluigiChar.aP);
     enemyAP = waluigiChar.aP;
     enemyHP = waluigiChar.hP;
-    battleTime()
   }
+  preBattleTime()
 }
 
 function statMakerTwo(){
@@ -214,35 +210,38 @@ function statMakerTwo(){
     $("#opponentAP").text(bowserChar.aP);
     enemyAP = bowserChar.aP;
     enemyHP = bowserChar.hP;
-    battleTime()
   }
   else if ($("#upNextImgTwo").attr("class") == "battlePageImg upNextImg warioChecker") {
     $("#opponentHP").text(warioChar.hP);
     $("#opponentAP").text(warioChar.aP);
     enemyAP = warioChar.aP;
     enemyHP = warioChar.hP;
-    battleTime()
   }
   else if ($("#upNextImgTwo").attr("class") == "battlePageImg upNextImg waluigiChecker") {
     $("#opponentHP").text(waluigiChar.hP);
     $("#opponentAP").text(waluigiChar.aP);
     enemyAP = waluigiChar.aP;
     enemyHP = waluigiChar.hP;
-    battleTime()
   }
+  preBattleTime()
 }
 //battle function
 
-function battleTime() {
-  console.log("you made it to battle time")
+function preBattleTime() {
+  console.log("you made it to pre battle time")
   var songTime = document.getElementById("gameMusicSource");
   songTime.src = "assets/audio/gameSounds.wav";
   $("#playerHP").text(playerHP);
   $("#opponentHP").text(enemyHP);
   $("#playerAP").text(playerAP);
   $("#opponentAP").text(enemyAP);
+  battleTimeFoReal()
+}
+
+
+function battleTimeFoReal() {
+  $("#attackBtn").on("click", function battlin() {
   if (enemyHP > 0) {
-    $("#attackBtn").on("click", function battlin() {
       $("#player" ).animate({ "left": "+=13%" }, "slow" );
       $("#player" ).animate({ "left": "-=13%" }, "slow" );
       $("#opponent" ).animate({ "left": "-=13%" }, "slow" );
@@ -253,30 +252,34 @@ function battleTime() {
       $("#playerHP").text(playerHP);
       playerAP = playerAP + 3;
       $("#playerAP").text(playerAP);
-      if (enemyLeft > 1 && enemyHP <= 0) {
-        enemyLeft--
-        enemyLeft = enemyLeft
-        enemyHP = 1
-        chooseNext();
-      }
-      if (enemyLeft === 1 && enemyHP > 0) {
+      battlerChecker();
+  }
+  })
+}
+
+function battlerChecker() {
+  if (enemyLeft > 1 && enemyHP <= 0) {
+    enemyLeft--
+    enemyHP = 1
+    chooseNext();
+    }
+  else if (enemyLeft === 1 && enemyHP <= 0) {
+    console.log(enemyHP)
+    $("#selectionPage").hide();
+    $("#battlePage").hide();
+    $("#losePage").hide();
+    $("#winPage").show();
+  }
+  else if (playerHP <= 0) {
+    $("#selectionPage").hide();
+    $("#battlePage").hide();
+    $("#losePage").show();
+    $("#winPage").hide();
+  }
+  else if (enemyLeft === 1 && enemyHP > 0) {
         console.log("ya here")
         console.log(enemyHP)
-      }
-      if (enemyLeft === 1 && enemyHP <= 0) {
-        console.log(enemyHP)
-        $("#selectionPage").hide();
-        $("#battlePage").hide();
-        $("#losePage").hide();
-        $("#winPage").show();
-      }
-      if (playerHP <= 0) {
-        $("#selectionPage").hide();
-        $("#battlePage").hide();
-        $("#losePage").show();
-        $("#winPage").hide();
-      }
-    })
+        dummyFunk();
   }
 }
 
@@ -289,6 +292,11 @@ function chooseNext() {
   $("#opponentAP").text("0");
   $("#opponentHP").text("0");
   oppoDefiner()
+}
+
+// function dummyFunk
+function dummyFunk() {
+  preBattleTime();
 }
 
 
