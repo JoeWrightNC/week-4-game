@@ -202,7 +202,9 @@ function statMakerOne(){
     enemyHP = waluigiChar.hP;
   }
   preBattleTime()
+  test++;
 }
+var test = 0;
 
 function statMakerTwo(){
   if ($("#upNextImgTwo").attr("class") == "battlePageImg upNextImg bowserChecker") {
@@ -224,6 +226,7 @@ function statMakerTwo(){
     enemyHP = waluigiChar.hP;
   }
   preBattleTime()
+  test++;
 }
 //battle function
 
@@ -235,7 +238,8 @@ function preBattleTime() {
   $("#opponentHP").text(enemyHP);
   $("#playerAP").text(playerAP);
   $("#opponentAP").text(enemyAP);
-  battleTimeFoReal()
+  if (test < 2) {
+    battleTimeFoReal()
 }
 
 
@@ -299,5 +303,5 @@ function dummyFunk() {
   preBattleTime();
 }
 
-
+}
 })
