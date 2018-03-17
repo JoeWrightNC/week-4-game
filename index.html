@@ -25,21 +25,28 @@
 
 <div id="selectionPage">
   <div class="row">
+    <div class="col-xs-12">
+    </div>
+  </div>
+  <div class="row">
     <div class="col-xs-12 col-md-6 selectionColumn">
       <div class="row">
         <div class="col-xs-12">
           <button type="button" class="btn btn-warning" id="startBtn">Start Game</button>
+          <br>
+          <br>
+          <button type="button" class="btn btn-success" id="resetBtn">Reset Characters</button>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-6 subSelectionCol">
           <div class="finalSelectionImg" id="playerSelectionImg">
-            <p>Your Character:</p>
+            <p id="yourChar">Your Character:</p>
           </div>
         </div>
         <div class="col-xs-6 subSelectionCol">
           <div class="finalSelectionImg" id="enemyImg">
-            <p>First Opponent</p>
+            <p scrollamount="10" id="oppoChar">First Opponent:</p>
           </div>
         </div>
       </div>
@@ -54,18 +61,18 @@
         <div class"row">
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="marioImg" src="./assets/images/mario.png" alt="Mario">
-            <p>AP: </p>
-            <p>HP: </p>
+            <p> AP: <span id="marioSelectAP"></span> </p>
+            <p> HP: <span id="marioSelectHP"></span> </p>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="linkImg" src="./assets/images/link.png" alt="Link">
-            <p>AP: </p>
-            <p>HP: </p>
+            <p> AP: <span id="linkSelectAP"></span> </p>
+            <p> HP: <span id="linkSelectHP"></span> </p>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionImg" id="foxImg" src="./assets/images/fox.png" alt="Fox">
-            <p>AP: </p>
-            <p>HP: </p>
+            <p> AP: <span id="foxSelectAP"></span></p>
+            <p> HP: <span id="foxSelectHP"></span></p>
           </div>
         <div class="row">
           <div class="col-xs-12">
@@ -75,18 +82,18 @@
         <div class"row">
           <div class="col-xs-4">
             <img class="card-img-top selectionEnemyImg" id="bowserImg" src="./assets/images/Bowser.png" alt="Bowser">
-            <p>AP: </p>
-            <p>HP: </p>
+            <p> AP: <span id="bowserSelectAP"></span> </p>
+            <p> HP: <span id="bowserSelectHP"></span> </p>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionEnemyImg" id="warioImg" src="./assets/images/Wario.png" alt="Wario">
-            <p>AP: </p>
-            <p>HP: </p>
+            <p> AP: <span id="warioSelectAP"></span> </p>
+            <p> HP: <span id="warioSelectHP"></span> </p>
           </div>
           <div class="col-xs-4">
             <img class="card-img-top selectionEnemyImg" id="waluigiImg" src="./assets/images/Waluigi.png" alt="Waluigi">
-            <p>AP: </p>
-            <p>HP: </p>
+            <p> AP: <span id="waluigiSelectAP"></span></p>
+            <p> HP: <span id="waluigiSelectHP"></span></p>
           </div>
         </div>
       </div>

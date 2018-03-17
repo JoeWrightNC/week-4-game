@@ -39,6 +39,20 @@ h1 {
   padding-bottom:25%;
 }
 
+#yourChar {
+  font-size:x-large;
+  color:midnightblue;
+  text-shadow: navajowhite 4px 4px;
+  transform: rotate(-10deg);
+}
+
+#oppoChar {
+  font-size:x-large;
+  transform: rotate(10deg);
+  color:midnightblue;
+  text-shadow: navajowhite 4px 4px;
+}
+
 .selectionImg {
   width:90%;
   height:90%;
@@ -86,9 +100,11 @@ img.selectionEnemyImg:hover {
   opacity:.8;
 }
 
-#startBtn {
+.btn {
   font-size:x-large;
+  margin-right:20%;
 }
+
 
 .subSelectionCol {
   text-align: center;

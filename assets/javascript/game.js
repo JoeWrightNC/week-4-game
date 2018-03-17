@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+setTimeout(instructions, 500)
+
+function instructions() {
+  alert("Welcome to Super Smash Bros Bootcamp RPG Edition!  To play, first select your chracter and your first opponent by clicking on them.  Once the fight begins, click the attack button in order to attack; your enemy will counter also!  Select your opponents in the right order to win.  Once you defeat the first opponent, you'll be able to select who to fight next by clicking on their image!");
+}
 //start music and set page
 var player = document.getElementById("gameMusicSource");
 player.loop = false;
@@ -31,16 +36,16 @@ var marioChar = {
 }
 var linkChar = {
     aP: 20,
-    hP: 250,
+    hP: 270,
     source: "./assets/images/link.png",
 }
 var foxChar = {
-    aP: 18,
-    hP: 230,
+    aP: 19,
+    hP: 265,
     source: "./assets/images/fox.png",
 }
 var bowserChar = {
-  aP: 10,
+  aP: 13,
   hP: 280,
   source: "./assets/images/Bowser.png",
 }
@@ -50,10 +55,25 @@ var warioChar = {
   source: "./assets/images/Wario.png",
 }
 var waluigiChar = {
-  aP: 15,
-  hP: 200,
+  aP: 16,
+  hP: 220,
   source: "./assets/images/Waluigi.png",
 }
+
+//write stats to selection DOM.  Could do statically but eh why not
+$("#marioSelectAP").text(marioChar.aP)
+$("#marioSelectHP").text(marioChar.hP)
+$("#linkSelectAP").text(linkChar.aP)
+$("#linkSelectHP").text(linkChar.hP)
+$("#foxSelectAP").text(foxChar.aP)
+$("#foxSelectHP").text(foxChar.hP)
+$("#bowserSelectAP").text(bowserChar.aP)
+$("#bowserSelectHP").text(bowserChar.hP)
+$("#warioSelectAP").text(warioChar.aP)
+$("#warioSelectHP").text(warioChar.hP)
+$("#waluigiSelectAP").text(waluigiChar.aP)
+$("#waluigiSelectHP").text(waluigiChar.hP)
+
 
 //click events, first select character, then opponent 
 $(".selectionImg").on("click", function(playerSelection){
@@ -73,6 +93,12 @@ $(".selectionEnemyImg").on("click", function(enemySelection){
   else {
   }
 });
+
+//easy reset function
+$("#resetBtn").on("click", function(resetGame) {
+  location.reload();
+})
+
 
 //start game button function
 $("#startBtn").on("click", function(startGame) {
@@ -304,4 +330,5 @@ function dummyFunk() {
 }
 
 }
+
 })
